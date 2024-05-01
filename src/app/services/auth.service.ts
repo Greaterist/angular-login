@@ -7,7 +7,7 @@ import { ILogin } from '../interfaces/ILogin';
 @Injectable({
   providedIn: 'root'
 })
-export class ServerService {
+export class AuthService {
   baseUrl = 'https://65ccb76ddd519126b83f5e93.mockapi.io/login';
   constructor(private http: HttpClient) { }
 

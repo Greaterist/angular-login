@@ -6,12 +6,13 @@ import {
   ReactiveFormsModule,
   Validators,
 } from '@angular/forms';
-import { ServerService } from 'src/app/services/server.service';
+
 import { interval, take } from 'rxjs';
 import { ILogin } from 'src/app/interfaces/ILogin';
 import { ErrorService } from 'src/app/services/error.service';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -30,7 +31,7 @@ export class LoginComponent {
 
   constructor(
     private formBuilder: FormBuilder,
-    private serverService: ServerService,
+    private serverService: AuthService,
     private errorService: ErrorService
   ) {
     this.loginForm = formBuilder.group({
