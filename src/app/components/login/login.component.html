@@ -1,0 +1,14 @@
+<div class="login">
+    <div class="row">
+        <form [formGroup]="loginForm" (ngSubmit)="loginHandler()">
+            <mat-form-field class="wide">
+                <mat-label>login</mat-label>
+                <input name="login" matInput formControlName="login" />
+            </mat-form-field>
+            <p> @if (isSending) {до повторной попытки осталось: {{sendingTimeout}}} 
+            </p>
+            <button mat-stroked-button color="primary" type="submit" [disabled]="checkIsSubmitDisabled()">Отправить</button>
+          </form>
+          <p>{{ userName?.login }}</p>
+    </div>
+</div>
