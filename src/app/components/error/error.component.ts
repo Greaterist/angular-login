@@ -7,9 +7,6 @@ import {
 } from '@angular/material/snack-bar';
 import {MatButtonModule} from '@angular/material/button';
 
-
-
-
 @Component({
   selector: 'app-error',
   standalone: true,

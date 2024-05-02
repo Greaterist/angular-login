@@ -47,7 +47,7 @@ export class LoginComponent {
   public loginForm!: FormGroup;
   public userName?: ilogin;
 
-  private subscribe: Subject<Subscription> = new Subject()
+  private subscribe?: Subscription
   
 
   constructor(
@@ -63,7 +63,7 @@ export class LoginComponent {
   }
 
   private ngOnDestroy(): void {
-    this.subscribe.unsubscribe();
+    this.subscribe?.unsubscribe();
   }
 
   protected checkIsSubmitDisabled(): boolean {
@@ -81,7 +81,7 @@ export class LoginComponent {
   private startTimeout(): void {
     this.isSending.next(true);
     let timer$ = timer(this.TIMER * 1000);
-    this.subscribe.next(interval(1000)
+    this.subscribe = interval(1000)
       .pipe(
         tap(() => this.sendingTimeout.next(this.sendingTimeout.value - 1)),
         takeUntil(
@@ -91,7 +91,7 @@ export class LoginComponent {
           this.resetTimer()
         })
       )
-      .subscribe())
+      .subscribe()
   }
 
   private resetTimer(): void {
