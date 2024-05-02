@@ -7,18 +7,17 @@ import { ErrorComponent } from '../components/error/error.component';
 })
 export class ErrorService {
 
-  config: MatSnackBarConfig
-
+  private config: MatSnackBarConfig
 
   constructor(
-    private _snackBar: MatSnackBar
+    private snackBar: MatSnackBar
   ) {
     this.config = new MatSnackBarConfig();
     this.config.duration = 5000;
    }
 
-  openError(error:Error, _config:MatSnackBarConfig = this.config) {
-    this._snackBar.openFromComponent(ErrorComponent, {
+  public openError(error:Error, _config:MatSnackBarConfig = this.config) {
+    this.snackBar.openFromComponent(ErrorComponent, {
       ...this.config,
       data: error.message,
     });
