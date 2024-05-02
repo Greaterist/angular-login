@@ -13,7 +13,7 @@ import { MatInputModule } from '@angular/material/input';
   standalone: true,
   imports: [CommonModule, MatInputModule, MatButtonModule, FormsModule],
   templateUrl: './login-control.component.html',
-  styleUrl: './login-control.component.css',
+  styleUrl: './login-control.component.scss',
   providers: [
     {
       provide: NG_VALUE_ACCESSOR,

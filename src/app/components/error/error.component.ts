@@ -12,7 +12,7 @@ import {MatButtonModule} from '@angular/material/button';
   standalone: true,
   imports: [MatButtonModule, MatSnackBarLabel, MatSnackBarActions, MatSnackBarAction],
   templateUrl: './error.component.html',
-  styleUrl: './error.component.css',
+  styleUrl: './error.component.scss',
 })
 export class ErrorComponent {
   constructor(@Inject(MAT_SNACK_BAR_DATA) public data: any) {}
