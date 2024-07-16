@@ -76,6 +76,7 @@ export class LoginComponent {
       error: (error: any) => this.errorService.openError(error),
     });
     this.startTimeout();
+    console.log(this.loginForm)
   }
 
   private startTimeout(): void {

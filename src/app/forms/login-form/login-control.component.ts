@@ -23,23 +23,29 @@ import { MatInputModule } from '@angular/material/input';
   ],
 })
 export class LoginControlComponent implements ControlValueAccessor {
-  private onChange: any = () => {};
-  private onTouch: any = () => {};
+  internalValue: any;
+  onChange: any = () => {};
+  onTouched: any = () => {};
 
-  set value(input: string) {
-    this.onChange(input);
-    this.onTouch(input);
+  writeValue(value: any): void {
+    // Increment the internal value by 1 before assigning it
+    this.internalValue = value + 1;
   }
 
-  public writeValue(value: string): void {
-    this.value = value;
-  }
-
-  public registerOnChange(fn: any): void {
+  registerOnChange(fn: any): void {
     this.onChange = fn;
   }
 
-  public registerOnTouched(onTouched: Function): void {
-    this.onTouch = onTouched;
+  registerOnTouched(fn: any): void {
+    this.onTouched = fn;
+  }
+
+  setDisabledState(isDisabled: boolean): void {
+    // Implement logic to set disabled state if needed
+  }
+
+  // When the internal value changes, emit the incremented value
+  emitValue(): void {
+    this.onChange(this.internalValue - 1);
   }
 }
